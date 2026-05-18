@@ -1,0 +1,337 @@
+/* ── Layout ─────────────────────────────────────────── */
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0 12px;
+  border-bottom: 1px solid #1e2030;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  box-shadow: 0 0 8px #ff3b3b;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.header-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #f0f0ff;
+  text-transform: uppercase;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.countdown {
+  font-size: 13px;
+  font-weight: 600;
+  color: #a0a0c0;
+  letter-spacing: 0.04em;
+}
+
+.refresh-btn {
+  background: #1a1b2e;
+  border: 1px solid #2e3050;
+  color: #a0a8d0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.15s, color 0.15s;
+}
+.refresh-btn:hover:not(:disabled) {
+  background: #252744;
+  color: #e0e8ff;
+}
+.refresh-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.last-updated {
+  font-size: 11px;
+  color: #4a4a6a;
+  text-align: right;
+  padding: 6px 0 0;
+  letter-spacing: 0.02em;
+}
+
+/* ── Scoreboard banner ──────────────────────────────── */
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 28px 0 24px;
+  border-bottom: 1px solid #1e2030;
+}
+
+.sb-score {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  min-width: 220px;
+  text-align: center;
+}
+
+.sb-score.positive { color: #22dd88; }
+.sb-score.negative { color: #ff4d6a; }
+
+.sb-vs {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: #404060;
+}
+
+/* ── Player grid ────────────────────────────────────── */
+.players-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 0 0;
+}
+
+@media (max-width: 640px) {
+  .players-grid { grid-template-columns: 1fr; }
+  .sb-score { font-size: 32px; min-width: 140px; }
+}
+
+/* ── Player card ────────────────────────────────────── */
+.player-card {
+  background: #0f1020;
+  border: 1px solid #1e2030;
+  border-radius: 8px;
+  padding: 20px 18px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.player-card.winning {
+  border-color: #22dd88;
+  box-shadow: 0 0 24px rgba(34, 221, 136, 0.08);
+}
+
+.winning-badge {
+  position: absolute;
+  top: -1px;
+  right: 14px;
+  background: #22dd88;
+  color: #001a0e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  border-radius: 0 0 4px 4px;
+}
+
+.player-wallet {
+  font-family: monospace;
+  font-size: 13px;
+  color: #6070a0;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.player-account-val {
+  font-size: 28px;
+  font-weight: 700;
+  color: #e8e8ff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.player-account-label {
+  font-size: 11px;
+  color: #404060;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ── Score display ──────────────────────────────────── */
+.score-display {
+  padding: 10px 0 14px;
+  border-top: 1px solid #1a1c2e;
+  border-bottom: 1px solid #1a1c2e;
+  margin-bottom: 14px;
+}
+
+.score-pnl {
+  font-size: 22px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-roi {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.positive { color: #22dd88; }
+.negative { color: #ff4d6a; }
+
+/* ── Positions ──────────────────────────────────────── */
+.positions-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #404060;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.no-positions {
+  font-size: 13px;
+  color: #404060;
+  font-style: italic;
+}
+
+.position-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  background: #0c0d1a;
+}
+
+.position-row.long { border-left: 3px solid #22dd88; }
+.position-row.short { border-left: 3px solid #ff4d6a; }
+
+.pos-dir {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  width: 38px;
+}
+.position-row.long .pos-dir { color: #22dd88; }
+.position-row.short .pos-dir { color: #ff4d6a; }
+
+.pos-symbol {
+  font-weight: 700;
+  color: #c0c8ff;
+  font-size: 13px;
+  flex: 1;
+}
+
+.pos-size {
+  color: #8090b0;
+  font-variant-numeric: tabular-nums;
+}
+
+.pos-price {
+  color: #6070a0;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
+
+/* ── Event feed ─────────────────────────────────────── */
+.event-feed {
+  margin-top: 24px;
+  border: 1px solid #1e2030;
+  border-radius: 8px;
+  background: #0f1020;
+  overflow: hidden;
+}
+
+.feed-header {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #404060;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-bottom: 1px solid #1a1c2e;
+  background: #0a0b16;
+}
+
+.no-events {
+  padding: 20px 16px;
+  font-size: 13px;
+  color: #404060;
+  font-style: italic;
+}
+
+.feed-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.feed-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid #12141f;
+  border-left: 3px solid transparent;
+}
+
+.feed-item.p1 { border-left-color: #5080ff; }
+.feed-item.p2 { border-left-color: #ff8030; }
+
+.feed-item:last-child { border-bottom: none; }
+
+.ev-time {
+  color: #404060;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  min-width: 80px;
+  font-family: monospace;
+}
+
+.ev-type {
+  flex: 1;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ev-market-order { color: #ffcc44; }
+.ev-limit-order { color: #88aaff; }
+.ev-cancel { color: #888; }
+.ev-deposit { color: #66bbff; }
+.ev-withdraw { color: #ff9966; }
+
+.ev-player {
+  font-family: monospace;
+  font-size: 11px;
+  color: #404060;
+}
