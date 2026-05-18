@@ -292,6 +292,63 @@
   font-size: 11px;
 }
 
+/* ── Best / Worst positions ──────────────────────────── */
+.best-worst {
+  display: flex;
+  margin-top: 20px;
+  border: 1px solid #1e2030;
+  border-radius: 8px;
+  background: #0f1020;
+  overflow: hidden;
+}
+
+.bw-item {
+  flex: 1;
+  padding: 16px 20px;
+}
+
+.bw-divider {
+  width: 1px;
+  background: #1e2030;
+}
+
+.bw-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.best-tag { color: #22dd88; }
+.worst-tag { color: #ff4d6a; }
+
+.bw-player {
+  font-size: 15px;
+  font-weight: 700;
+  color: #c0c8ff;
+  margin-bottom: 2px;
+}
+
+.bw-pos {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8090b0;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.bw-pnl {
+  font-size: 20px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.bw-pct {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* ── Event feed ─────────────────────────────────────── */
 .event-feed {
   margin-top: 24px;
@@ -317,6 +374,65 @@
   font-size: 13px;
   color: #404060;
   font-style: italic;
+}
+
+/* Live HYPE/SOL position banners */
+.active-tracked {
+  border-bottom: 1px solid #1a1c2e;
+}
+
+.active-tracked-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+  background: rgba(255, 200, 50, 0.04);
+}
+
+.active-tracked-item.p1 { border-left-color: #5080ff; }
+.active-tracked-item.p2 { border-left-color: #ff8030; }
+
+.at-live {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  background: #ff3b3b;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 3px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.at-player {
+  font-weight: 700;
+  color: #c0c8ff;
+  min-width: 44px;
+}
+
+.at-dir {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.at-dir.long { background: rgba(34, 221, 136, 0.12); color: #22dd88; }
+.at-dir.short { background: rgba(255, 77, 106, 0.12); color: #ff4d6a; }
+
+.at-symbol {
+  font-weight: 700;
+  color: #e0e8ff;
+  font-size: 14px;
+}
+
+.at-upnl {
+  margin-left: auto;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
 }
 
 .feed-list {
@@ -363,4 +479,30 @@
   font-family: monospace;
   font-size: 11px;
   color: #404060;
+}
+
+.tracked-event {
+  background: rgba(255, 200, 50, 0.06);
+}
+
+.ev-tracked {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ev-tracked-open { color: #ffcc44; }
+.ev-tracked-close { color: #88aaff; }
+
+.ev-entry {
+  font-size: 11px;
+  color: #505870;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Unrealized PnL on position rows */
+.pos-upnl {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
