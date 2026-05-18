@@ -3,6 +3,10 @@ import './App.css'
 
 const WALLET1 = 'AWK785JofvzZX6meFM6a9gTvLuGXSwt5pUuKVMswC2aS'
 const WALLET2 = 'M9xLFEM3q7EhF61aWj5PRvft77KbpW4M6q8j5cDHeA7'
+const PLAYERS = {
+  [WALLET1]: { name: 'Drew', subtitle: 'Pro Perps Trader' },
+  [WALLET2]: { name: 'Vibhu', subtitle: 'Mid Level Manager' },
+}
 const COMPETITION_START = 1779062142 // wallet 2 deposit tx blockTime May 17 2026
 const COMPETITION_END = COMPETITION_START + 7 * 86400
 const STARTING_BALANCE = 10000
@@ -159,6 +163,8 @@ function PlayerCard({ walletAddr, leaderData, traderState, lotSizes, isWinning }
   return (
     <div className={`player-card${isWinning ? ' winning' : ''}`}>
       {isWinning && <div className="winning-badge">LEADING</div>}
+      <div className="player-name">{PLAYERS[walletAddr].name}</div>
+      <div className="player-subtitle">{PLAYERS[walletAddr].subtitle}</div>
       <div className="player-wallet">{shortWallet(walletAddr)}</div>
       <div className="player-account-val">
         {accountValue !== null
@@ -205,7 +211,7 @@ function EventFeed({ events }) {
               <span className={`ev-type ev-${ev.type.replace(' ', '-').toLowerCase()}`}>
                 {EVENT_ICON[ev.type] || '•'} {ev.type}
               </span>
-              <span className="ev-player">{shortWallet(ev.wallet)}</span>
+              <span className="ev-player">{PLAYERS[ev.wallet].name}</span>
             </div>
           ))}
         </div>
@@ -290,12 +296,18 @@ export default function App() {
       </div>
 
       <div className="scoreboard">
-        <div className={`sb-score ${score1 !== null && score1 >= 0 ? 'positive' : 'negative'}`}>
-          {score1 !== null ? fmtUSD(score1) : '—'}
+        <div className="sb-player">
+          <div className="sb-name">{PLAYERS[WALLET1].name}</div>
+          <div className={`sb-score ${score1 !== null && score1 >= 0 ? 'positive' : 'negative'}`}>
+            {score1 !== null ? fmtUSD(score1) : '—'}
+          </div>
         </div>
         <div className="sb-vs">VS</div>
-        <div className={`sb-score ${score2 !== null && score2 >= 0 ? 'positive' : 'negative'}`}>
-          {score2 !== null ? fmtUSD(score2) : '—'}
+        <div className="sb-player">
+          <div className="sb-name">{PLAYERS[WALLET2].name}</div>
+          <div className={`sb-score ${score2 !== null && score2 >= 0 ? 'positive' : 'negative'}`}>
+            {score2 !== null ? fmtUSD(score2) : '—'}
+          </div>
         </div>
       </div>
 

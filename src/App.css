@@ -98,13 +98,25 @@
   border-bottom: 1px solid #1e2030;
 }
 
+.sb-player {
+  text-align: center;
+  min-width: 220px;
+}
+
+.sb-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8090c0;
+  margin-bottom: 4px;
+}
+
 .sb-score {
   font-size: 48px;
   font-weight: 800;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
-  min-width: 220px;
-  text-align: center;
 }
 
 .sb-score.positive { color: #22dd88; }
@@ -158,11 +170,28 @@
   border-radius: 0 0 4px 4px;
 }
 
+.player-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #e8e8ff;
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+}
+
+.player-subtitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a5070;
+  margin-bottom: 8px;
+}
+
 .player-wallet {
   font-family: monospace;
-  font-size: 13px;
-  color: #6070a0;
-  margin-bottom: 6px;
+  font-size: 11px;
+  color: #404060;
+  margin-bottom: 8px;
   letter-spacing: 0.04em;
 }
 
